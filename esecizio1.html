@@ -1,0 +1,107 @@
+<html>
+    <head>
+
+        <!-- creo titolo  -->
+        <title>titolo esercitazione</title>
+
+    </head>
+
+
+    <body style="background-color: grey;">
+
+
+<!--____TIPOLOGIE DI BUTTON____-->
+
+<!--bottone che non fa una bega -->
+        <button>bottone inutile </button>
+
+<!--bottone che al click stampa in console un messaggio-->
+        <button onclick="console.log('messaggio in console')">stampo in console</button>
+
+<!--bottone che al click richiama la funzione-->
+        <button onclick="funzioneBase()">richiamo una funzione</button>
+
+<!--bottone con un id e lo uso da script (listener)-->        
+        <button id=btn>sono il bottone con l'id</button>
+
+
+<!--creo una div con un paragrafo e gli do l'id (non fa essenzialmente nulla perchè è un elemento grafico)-->
+        <div id=div1>
+            <p>proviamo sto coso</p>
+        </div>
+
+
+        
+<!--____SCRIPT_____-->
+
+<!-- apro uno script per inserire il codice  -->
+<script>
+
+//creo una funzione base 
+var funzioneBase = function () {
+
+    //stampo 
+    console.log("click da bottone funzione");
+
+}
+
+
+//creo una variabile che recupera l'elemento div
+var div1 = document.getElementById("div1");
+//cambio il contenuto del div1
+div1.innerHTML= "<p>testo cambiato da script</p>"
+//cambio il colore del testo
+div1.setAttribute("style", "background-color: pink");
+
+
+//creo funzione che cambia il contenuto del div quando richiamata
+var funzioneTesto = function(){
+div1.innerHTML= "cambio il texto dal listener mamma mia";
+
+}
+
+
+
+//----- cambio il colore del tasto a giro -----
+
+//richiamo il bottone nello script
+var btn = document.getElementById("btn");
+
+
+//creo variabile di appoggio per il colore
+var rosso = true;
+//imposto il btn in ascolto e imposto la funzione da eseguire
+btn.addEventListener("click", function(){
+
+
+funzioneTesto();
+
+
+//creo le condizioni
+if(rosso === false){
+    //rimuovo il colore
+    btn.removeAttribute("style");
+    //imposto la variabile come true
+    rosso=true;
+}else{
+    //imposto il colore
+    btn.setAttribute("style", "background-color: red")
+    //imposto la variabile come false
+    rosso=false;
+}
+
+
+});
+
+
+
+
+
+
+</script>
+
+
+    </body>
+
+
+</html>
